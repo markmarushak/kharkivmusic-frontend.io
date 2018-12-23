@@ -16,8 +16,13 @@ section.main {
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
-	height: 100vh;
+	height: 110%;
 	flex-direction: column;
+}
+@media screen and (min-width: 1500px) {
+	section.main {
+		height: 100vh;
+	}
 }
 .hide {
 	display: none;
@@ -450,11 +455,14 @@ article.form header > * {
 	font-size: 0.93rem;
 	font-weight: 600;
 }
-
 .notific {
+	visibility: hidden;
+}
+#buy-month:checked ~ .notific {
 	position: absolute;
 	color: #aeaeae;
 	font-size: 13px;
+	visibility: visible;
 }
 .checkbox-confirm .notific {
 	right: 0;

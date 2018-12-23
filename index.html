@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="js/calendar/css/ion.calendar.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+
+
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	
+	<header class="top">
+		<div class="logo">
+			<img src="img/logo.png" alt="">
+		</div>
+	</header>
+
+	<section class="main">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-sm-12 col-xs-12">
+					<ul class="menu">
+						<li class="active"><a href="#">репетиции</a></li>
+						<li><a href="#">запись</a></li>
+						<li><a href="#">уроки</a></li>
+						<li><a href="#">о нас</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<div class="col-sm-8 col-xs-12">
+					
+					<article class="colendar">
+						
+						<div class="myCalendar" id="myCalendar-1"></div>
+
+					</article>
+
+					<article class="info-order">
+						
+						<div class="main-info">
+							<header>Информация о заказе</header>
+
+							<table>
+								<tr>
+									<td>Желаемая дата:</td>
+									<td>Декабрь 19, 2018</td>
+								</tr>
+								<tr>
+									<td>Начало:</td>
+									<td>14:00</td>
+								</tr>
+								<tr>
+									<td>Конец:</td>
+									<td>16:00</td>
+								</tr>
+								<tr>
+									<td>Цена:</td>
+									<td>200 &#8372;</td>
+								</tr>
+
+							</table>
+						</div>
+
+						<div class="total-amount">
+							<table>
+								<tr>
+									<td>Всего к оплате:</td>
+									<td><span class="amount"><span class="num">200</span>&#8372;</span></td>
+								</tr>
+							</table>
+						</div>
+
+					</article>
+
+				</div>
+
+				<div class="col-sm-4 col-xs-12">
+					
+					<article class="form">
+						
+						<form action="#">
+							
+							<div class="form">
+								<header>
+									<h4>Оформление заказа</h4>
+								</header>
+								
+								<div class="f-group">
+									<label class="f-block inp-text">
+										<span>
+											Имя
+										</span>
+										<input type="text" placeholder="Введите выше имя" name="name">
+									</label>
+
+									<label class="f-block inp-text">
+										<span>
+											Название группы
+										</span>
+										<input type="text" placeholder="Введите название вашей группы" name="group">
+									</label>
+
+									<label class="f-block inp-text">
+										<span>
+											E-Mail
+										</span>
+										<input type="email" placeholder="Введите ваш E-Mail адрес">
+									</label>
+
+									<label class="f-block inp-text">
+										<span>Моб. Телефон</span>
+										<input type="number" placeholder="+380___-__-__ ">
+									</label>
+
+									
+									
+									<div class="checkbox-confirm">
+										<input type="checkbox" name="call-back" id="call-back" class="checkbox">
+										<label for="call-back">
+											Хочу обратный звонок до оплаты
+										</label>
+									</div>
+
+									<div class="mus-instr f-block">
+										<span>Интсрументы на которых вы играете</span>
+										<div class="f-inline">
+											<div class="instr">
+												<input type="checkbox" name="Drum" id="drum">
+												<label for="drum"><i class="fas fa-drum"></i> Барабаны</label>
+											</div>
+
+											<div class="instr">
+												<input type="checkbox" name="Acustic" id="acustic">
+												<label for="acustic"><i class="fas fa-guitar"></i> Акустика</label>
+											</div>
+
+											<div class="instr">
+												<input type="checkbox" name="Bas" id="bas">
+												<label for="bas"><i class="fas fa-guitar"></i> Бас</label>
+											</div>
+										</div>
+									</div>
+
+									<div class="timer">
+										<p>Осталось времени для оплаты: <span class="time"><span class="timer-number">15:35</span> мин</span></p>
+									</div>
+
+									<div class="order">
+										<button class="form-btn">
+											Забронировать и оплатить
+										</button>
+									</div>
+									
+									<div class="checkbox-confirm">
+										<input type="checkbox" name="buy-month" id="buy-month" class="checkbox">
+										<label for="buy-month">
+											Бронь на месяц
+										</label>
+										<span class="notific">Скидка - 15% </span>
+									</div>
+
+
+								</div>
+
+							</div>
+
+						</form>
+
+					</article>
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	
+	<div class="hidden-xs" id="component">
+		<header></header>
+		<input type="checkbox" >
+		<table id="tab">
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+	
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="js/calendar/js/moment-with-locales.min.js"></script>
+	<script src="js/calendar/js/ion.calendar.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

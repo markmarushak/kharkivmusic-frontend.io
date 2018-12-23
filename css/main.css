@@ -63,7 +63,6 @@ section.main {
 	text-transform: uppercase;
 	text-decoration: none;
 	font-size: 18px;
-	transition: all 0.3s ease-in-out;
 	border-bottom: 0px solid #edbe00;
 	padding-bottom: 10px;
 }
@@ -263,13 +262,27 @@ table.dataTable thead th, table.dataTable thead td {
 	color: #333;
 	border-radius: 0;
 	border: none;
-	padding: 10px 0;
+	padding: 7px 0;
 	text-align: left;
 	font-size: 0.75rem;
 	width: auto;
 }
+#tab tr td {
+	border-bottom: 1px solid #e0e0e0;
+}
+#tab tr.select td:nth-child(even) {
+	color: #24a93a;
+}
+#tab tr:last-child td > *{
+	border-bottom: none;
+}
 
-
+#tab .main-color {
+	color: #edbe00;
+}
+#tab .red-color {
+	color: red;
+}
 
 article.form {
 	background: #3b3b3b;
@@ -465,4 +478,18 @@ article.form header > * {
 
 .amount {
 	color: #edbe00;
+}
+.control {
+	text-align: right;
+	margin-top: 10px;
+}
+.control > * {
+	text-transform: uppercase;
+	color: #000;
+	text-decoration: none;
+	font-size: 13px;
+}
+.control > *:first-child {
+	color: #acacac;
+	margin-right: 5px;
 }

@@ -121,33 +121,33 @@
                     html += '<div class="ic__header">';
 
                     if($(document).width() < 768){
-for(i = 0; i <= 12; i++){
-                        if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
-                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+'</div>';
-                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
-                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+'</div>';
-                        }
+                        for(i = 0; i <= 12; i++){
+                            if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
+                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+'</div>';
+                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
+                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+'</div>';
+                            }
 
-                        if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
-                            html += '<div class="ic__next next">'+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
-                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
-                            html += '<div class="ic__next next">'+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                            if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
+                                html += '<div class="ic__next next">'+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
+                                html += '<div class="ic__next next">'+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                            }
                         }
-                    }
                     }else{
-for(i = 0; i <= 12; i++){
-                        if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
-                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY")-1)+'</div>';
-                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
-                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY"))+'</div>';
-                        }
+                        for(i = 0; i <= 12; i++){
+                            if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
+                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY")-1)+'</div>';
+                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
+                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY"))+'</div>';
+                            }
 
-                        if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
-                            html += '<div class="ic__next next">'+(parseInt(timeNowLocal.format("YYYY"))+1)+' '+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
-                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
-                            html += '<div class="ic__next next">'+parseInt(timeNowLocal.format("YYYY"))+' '+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                            if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
+                                html += '<div class="ic__next next">'+(parseInt(timeNowLocal.format("YYYY"))+1)+' '+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
+                                html += '<div class="ic__next next">'+parseInt(timeNowLocal.format("YYYY"))+' '+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                            }
                         }
-                    }
                     }
                     
 
@@ -364,7 +364,7 @@ for(i = 0; i <= 12; i++){
                         firstStart = false;
                         timeNowLocal.year(parseInt(timeSelected.format("YYYY")));
                         timeNowLocal.month(parseInt(timeSelected.format("M") - 1));
-                        removeHTML();
+                        // removeHTML();
                     }
                 };
 

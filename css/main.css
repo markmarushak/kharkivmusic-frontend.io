@@ -270,9 +270,7 @@ table.dataTable thead th, table.dataTable thead td {
 #tab tr td {
 	border-bottom: 1px solid #e0e0e0;
 }
-#tab tr.select td:nth-child(even) {
-	color: #24a93a;
-}
+
 #tab tr:last-child td > *{
 	border-bottom: none;
 }
@@ -282,6 +280,16 @@ table.dataTable thead th, table.dataTable thead td {
 }
 #tab .red-color {
 	color: red;
+}
+
+#tab tr.select .main-color{
+	color: #24a93a !important;
+}
+#tab tr td:last-child {
+	text-transform: uppercase;
+}
+#tab tr td:last-child input {
+	visibility: hidden;
 }
 
 article.form {

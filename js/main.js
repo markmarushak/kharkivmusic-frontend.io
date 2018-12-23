@@ -5,10 +5,7 @@ jQuery(document).ready(function($) {
 		$(this).addClass('active');
 	});
 
-	$('#tab td input').click(function(){
-		$(this).parent().parent().parent().toggleClass('select');
-		console.log('ok');
-	});
+	
 
 
 	$("#myCalendar-1").ionCalendar({
@@ -19,6 +16,15 @@ jQuery(document).ready(function($) {
 	    format: "DD.MM.YYYY",           // формат возвращаемой даты
 	    onClick: function(data){        // клик по дням вернет сюда дату
 	    	getDaySchedule(data);
+	    	$('#tab td input').click(function(){
+				$(this).parent().parent().parent().toggleClass('select');
+				var text = $(this).prev().text();
+				if(text == 'выбрать'){
+					$(this).prev().text('выбрано');
+				}else{
+					$(this).prev().text('выбрать');
+				}
+			});
 	    }  
 	});
 
@@ -39,7 +45,6 @@ jQuery(document).ready(function($) {
 		var title = data[0];
 		var el = data[1];
 		var table = getTable(title);
-		el.append(table);
 		$('#tab .unavailable').parent().attr('colspan','2');
 
 		
@@ -155,7 +160,7 @@ jQuery(document).ready(function($) {
 				data: {buy: 'buy' ,status:'status', id: 'id'},
 				render: function (data, type, full, meta) {
 					if (data.status !== 'недоступно' && data.status !== 'занято') {
-						return `<label href="#" class="main-color">добавить <input type="checkbox" name="data-time" id="choose-`+data.id+`"></label>`
+						return `<label href="#" ><span class="main-color text-input">выбрать</span> <input type="checkbox" name="data-time" id="choose-`+data.id+`"></label>`
 					}else {
 						return ''
 					}
@@ -166,21 +171,23 @@ jQuery(document).ready(function($) {
 
 		
 
-		$('#component').removeClass('hide');
-		if(!$('*').is('.tab-bg')){
-			$('body').append('<div class="tab-bg"></div>');
-		}
+		
+		
 		$('.tab-bg').click(function(){
 			$('#component').addClass('hide');
 			$(this).remove();
 		});
 
 		$("table .ic__day").click(function(){
+			$('#component').removeClass('hide');
 			var table = $('#component');
 
 			table.find('header').text(d);
 
 			table.css($(this).offset());
+			if(!$('*').is('.tab-bg')){
+			$('body').append('<div class="tab-bg"></div>');
+		}
 		});
 
 		// var table = $('#component');

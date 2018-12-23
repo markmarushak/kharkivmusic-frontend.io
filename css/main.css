@@ -2,6 +2,7 @@
 * {
 	font-family: Roboto;
 }
+
 .top {
 	background: #edbe00;
 	text-align: center;
@@ -10,6 +11,13 @@
 
 section.main {
 	background: #2d2d2d;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
 }
 .hide {
 	display: none;

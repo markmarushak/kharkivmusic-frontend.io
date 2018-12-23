@@ -174,6 +174,8 @@ jQuery(document).ready(function($) {
 
 			if ($(document).width() < 768) {
 				table.css($(this).offset());
+			}else {
+				table.css($('#tab').offset());
 			}
 			if(!$('*').is('.tab-bg')){
 				$('body').append('<div class="tab-bg" onClick="hideBg($(this));"></div>');

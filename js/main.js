@@ -129,6 +129,14 @@ jQuery(document).ready(function($) {
 		}
 		]
 	});
+		$('#component').removeClass('hide');
+		if(!$('*').is('.tab-bg')){
+			$('body').append('<div class="tab-bg"></div>');
+		}
+		$('.tab-bg').click(function(){
+			$('#component').addClass('hide');
+			$(this).remove();
+		});
 		var table = $('#component');
 		table.find('header').text(d);
 		return table[0];

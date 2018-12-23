@@ -172,10 +172,10 @@ jQuery(document).ready(function($) {
 
 			table.find('header').text(d);
 
-			if ($(document).width() < 768) {
+			if ($(document).width() > 768) {
 				table.css($(this).offset());
 			}else {
-				table.css($('#tab').offset());
+				table.css($('.ic__days').offset());
 			}
 			if(!$('*').is('.tab-bg')){
 				$('body').append('<div class="tab-bg" onClick="hideBg($(this));"></div>');

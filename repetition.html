@@ -26,9 +26,9 @@
 			<div class="row">
 				<div class="col-sm-12 col-xs-12">
 					<ul class="menu">
-						<li><a href="repetition.html">репетиции</a></li>
+						<li class="active"><a href="#">репетиции</a></li>
 						<li><a href="#">запись</a></li>
-						<li class="active"><a href="#">уроки</a></li>
+						<li><a href="#">уроки</a></li>
 						<li><a href="#">о нас</a></li>
 					</ul>
 				</div>
@@ -68,6 +68,8 @@
 								</tr>
 
 							</table>
+
+							
 						</div>
 
 						<div class="total-amount">
@@ -213,6 +215,19 @@
 	<script src="js/calendar/js/ion.calendar.js"></script>
 	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script src="js/main.js"></script>
+
+	<script>
+		var weekends = [5,6,12,14,18,19];
+		jQuery(document).ready(function($) {
+			$('.ic__days td').each(function(index, el) {
+				for (var i = 0; i > $('.ic__days td').length; i++) {
+					if (index == weekends[i]){
+						console.log(el);
+					}
+				}
+			});
+		});
+	</script>
 
 </body>
 </html>

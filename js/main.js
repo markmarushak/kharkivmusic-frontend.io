@@ -7,7 +7,6 @@ jQuery(document).ready(function($) {
 
 	
 
-
 	$("#myCalendar-1").ionCalendar({
 		onReady: false,
 	    lang: "ru",                     // язык календаря
@@ -17,14 +16,14 @@ jQuery(document).ready(function($) {
 	    onClick: function(data){        // клик по дням вернет сюда дату
 	    	getDaySchedule(data);
 	    	$('#tab td input').click(function(){
-				$(this).parent().parent().parent().toggleClass('select');
-				var text = $(this).prev().text();
-				if(text == 'выбрать'){
-					$(this).prev().text('выбрано');
-				}else{
-					$(this).prev().text('выбрать');
-				}
-			});
+	    		$(this).parent().parent().parent().toggleClass('select');
+	    		var text = $(this).prev().text();
+	    		if(text == 'выбрать'){
+	    			$(this).prev().text('выбрано');
+	    		}else{
+	    			$(this).prev().text('выбрать');
+	    		}
+	    	});
 	    }  
 	});
 
@@ -46,8 +45,6 @@ jQuery(document).ready(function($) {
 		var el = data[1];
 		var table = getTable(title);
 		$('#tab .unavailable').parent().attr('colspan','2');
-
-		
 	}
 
 	function getTable(d){
@@ -169,35 +166,29 @@ jQuery(document).ready(function($) {
 			]
 		});
 
-		
-
-		
-		
-		$('.tab-bg').click(function(){
-			$('#component').addClass('hide');
-			$(this).remove();
-		});
-
 		$("table .ic__day").click(function(){
 			$('#component').removeClass('hide');
 			var table = $('#component');
 
 			table.find('header').text(d);
 
-			table.css($(this).offset());
+			if ($(document).width() < 768) {
+				table.css($(this).offset());
+			}
 			if(!$('*').is('.tab-bg')){
-			$('body').append('<div class="tab-bg"></div>');
-		}
+				$('body').append('<div class="tab-bg" onClick="hideBg($(this));"></div>');
+			}
 		});
 
 		// var table = $('#component');
 		// table.find('header').text(d);
 		// return table[0];
 	}
-
 	
 
-	
-	
 });
 
+function hideBg(el){
+	$('#component').addClass('hide');
+	$(el).remove();
+}

@@ -241,7 +241,6 @@
                         for(i = monthLastDay - weekFirstDay; i < monthLastDay; i++) {
                             html += '<td class="ic__day-empty"><span class="num">' + i + '</span></td>';
                         }
-
                         for(i = 1; i <= monthLastDay; i++) {
                             // current day
                             // if(moment(timeNowLocal).date(i).format("D.M.YYYY") === timeNow.format("D.M.YYYY")) {

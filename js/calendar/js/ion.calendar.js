@@ -21,6 +21,7 @@
         init: function(options){
 
             var settings = $.extend({
+                type: '',
                 lang: "en",
                 sundayFirst: true,
                 years: "80",
@@ -55,6 +56,7 @@
                 weekFirstDay,
                 weekLastDay,
                 monthLastDay,
+                selectMonth,
 
                 tempYears,
                 fromYear,
@@ -120,34 +122,35 @@
                     html  = '<div class="ic__container">';
                     html += '<div class="ic__header">';
 
+
                     if($(document).width() < 768){
-                        for(i = 0; i <= 12; i++){
-                            if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
-                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+'</div>';
-                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
-                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+'</div>';
-                            }
-
-                            if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
-                                html += '<div class="ic__next next">'+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
-                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
-                                html += '<div class="ic__next next">'+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
-                            }
+for(i = 0; i <= 12; i++){
+                        if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
+                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+'</div>';
+                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
+                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+'</div>';
                         }
+
+                        if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
+                            html += '<div class="ic__next next">'+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
+                            html += '<div class="ic__next next">'+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                        }
+                    }
                     }else{
-                        for(i = 0; i <= 12; i++){
-                            if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
-                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY")-1)+'</div>';
-                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
-                                html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY"))+'</div>';
-                            }
-
-                            if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
-                                html += '<div class="ic__next next">'+(parseInt(timeNowLocal.format("YYYY"))+1)+' '+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
-                            }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
-                                html += '<div class="ic__next next">'+parseInt(timeNowLocal.format("YYYY"))+' '+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
-                            }
+for(i = 0; i <= 12; i++){
+                        if(1 == Math.abs(parseInt(timeNowLocal.format("M"))) && i === 1){
+                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(11).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY")-1)+'</div>';
+                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")) - 2)){
+                            html += '<div class="ic__prev back"><i class="fas fa-chevron-left"></i>'+timeForWork.month(i).format("MMMM")+' '+parseInt(timeNowLocal.format("YYYY"))+'</div>';
                         }
+
+                        if (i === Math.abs(parseInt(timeNowLocal.format("M"))) && i === 12) {
+                            html += '<div class="ic__next next">'+(parseInt(timeNowLocal.format("YYYY"))+1)+' '+timeForWork.month(0).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                        }else if(i === Math.abs(parseInt(timeNowLocal.format("M")))){
+                            html += '<div class="ic__next next">'+parseInt(timeNowLocal.format("YYYY"))+' '+timeForWork.month(i).format("MMMM")+'<i class="fas fa-chevron-right"></i></div>';
+                        }
+                    }
                     }
                     
 
@@ -155,6 +158,7 @@
                     html += '<div class="ic__title">';
                     for(i = 0; i < 12; i++){
                         if(i === parseInt(timeNowLocal.format("M")) - 1){
+                            selectMonth = timeForWork.month(i).format("M");
                             html += '<span class="month">' + timeForWork.month(i).format("MMMM") + '</span>';
                         }
                     }
@@ -241,15 +245,33 @@
                         for(i = monthLastDay - weekFirstDay; i < monthLastDay; i++) {
                             html += '<td class="ic__day-empty"><span class="num">' + i + '</span></td>';
                         }
+
+                        // moment().format('DD'); 
                         for(i = 1; i <= monthLastDay; i++) {
-                            // current day
-                            // if(moment(timeNowLocal).date(i).format("D.M.YYYY") === timeNow.format("D.M.YYYY")) {
-                            //     html += '<td class="ic__day ic__day_state_current"><span class="num">' + i + '</span></td>';
-                            if(timeSelected && moment(timeNowLocal).date(i).format("D.M.YYYY") === timeSelected.format("D.M.YYYY")) {
-                                html += '<td class="ic__day ic__day_state_selected"><span class="num">' + i + '</span></td>';
-                            } else {
-                                html += '<td class="ic__day"><span class="num">' + i + '</span></td>';
+                            if(settings.type !== 'repetition'){
+                                if(i < moment().format('DD') && parseInt(moment().format("M")) == selectMonth ) {
+                                    html += '<td class="ic__day-empty"><span class="num">' + i + '</span></td>';
+                                }else if(timeSelected && moment(timeNowLocal).date(i).format("D.M.YYYY") === timeSelected.format("D.M.YYYY")) {
+                                    html += '<td class="ic__day ic__day_state_selected"><span class="num">' + i + '</span></td>';
+                                } else {
+                                    html += '<td class="ic__day"><span class="num">' + i + '</span></td>';
+                                }
+                            }else{
+                                if(i < moment().format('DD') && parseInt(moment().format("M")) == selectMonth ) {
+                                    html += '<td class="ic__day-empty"><span class="num">' + i + '</span></td>';
+
+                                }else if (moment(timeNowLocal).date(i).format("dddd") == 'воскресенье' || moment(timeNowLocal).date(i).format("dddd") == 'суббота'){
+                                    if(settings.type == 'repetition'){
+                                        html += '<td class="ic__day-empty"><span class="num">' + i + '</span></td>';
+                                    }
+                                }else if(timeSelected && moment(timeNowLocal).date(i).format("D.M.YYYY") === timeSelected.format("D.M.YYYY")) {
+                                    html += '<td class="ic__day ic__day_state_selected"><span class="num">' + i + '</span></td>';
+                                } else {
+                                    html += '<td class="ic__day"><span class="num">' + i + '</span></td>';
+                                }
                             }
+                                
+                            
 
                             // new week - new line
                             if((weekFirstDay + i) / 7 === Math.floor((weekFirstDay + i) / 7)) {
@@ -334,7 +356,7 @@
                                     if(settings.format === "moment") {
                                         settings.onClick.call(this, timeSelected);
                                     } else {
-                                        settings.onClick.call(this, [timeSelected.format('DD MMMM YYYY'), $(this)]);
+                                        settings.onClick.call(this, [timeSelected.format('DD MMMM YYYY'), $(this),$(this).offset()]);
                                     }
                                 } else {
                                     settings.onClick.call(this, timeSelected.format());
@@ -363,7 +385,7 @@
                         firstStart = false;
                         timeNowLocal.year(parseInt(timeSelected.format("YYYY")));
                         timeNowLocal.month(parseInt(timeSelected.format("M") - 1));
-                        // removeHTML();
+                        removeHTML();
                     }
                 };
 

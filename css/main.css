@@ -470,6 +470,7 @@ article.form header > * {
 
 .info-order {
 	margin-top: 30px;
+	position: relative;
 }
 
 .main-info {
@@ -516,4 +517,81 @@ article.form header > * {
 .control > *:first-child {
 	color: #acacac;
 	margin-right: 5px;
+}
+.control > *:hover {
+	text-decoration: none;
+	color: #333;
+}
+
+.addition {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    color: #fff;
+}
+
+@media screen and (max-width: 425px) {
+	.addition {
+		position: relative;
+		top: 0;
+		margin: 10px 0;
+	}
+}
+
+#add-info {
+	background: #373737;
+	width: 100%;
+	border: none;
+	height: 100%;
+	color: #fff;
+}
+
+#order-modal .modal-dialog {
+	max-width: 650px;
+}
+#order-modal .modal-body {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+#order-modal .modal-body > button {
+	position: absolute;
+	right: 25px;
+	top: 25px;
+}
+#order-modal .modal-body > *:not(button) {
+	padding: 20px 0;
+}
+#order-modal header {
+	margin-bottom: 20px;
+	color: #000;
+}
+#order-modal header h3{
+	font-weight: 900;
+}
+#order-modal header b {
+	color: #aeaeae;
+	font-weight: 600;
+	font-size: 0.9rem;
+}
+#order-modal .modal-time {
+	margin: 1rem 0;
+}
+#order-modal .modal-time > * {
+	font-size: 2.5rem;
+	font-weight: 900;	
+}
+
+#order-modal .order button {
+	padding: 17px 25px;
+	font-size: 1rem;
+	letter-spacing: 1px;
+	color: #333;
+	box-shadow: 0 2px 7px -2px #333;
 }

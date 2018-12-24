@@ -27,6 +27,29 @@ jQuery(document).ready(function($) {
 	    }  
 	});
 
+	$("#myCalendar-2").ionCalendar({
+		type: 'repetition',
+		onReady: false,
+	    lang: "ru",                     // язык календаря
+	    sundayFirst: false,             // первый день недели
+	    years: "2018-2050",                    // диапазон лет
+	    format: "DD.MM.YYYY",           // формат возвращаемой даты
+	    onClick: function(data){        // клик по дням вернет сюда дату
+	    	getDaySchedule(data);
+	    	$('#tab td input').click(function(){
+	    		$(this).parent().parent().parent().toggleClass('select');
+	    		var text = $(this).prev().text();
+	    		if(text == 'выбрать'){
+	    			$(this).prev().text('выбрано');
+	    		}else{
+	    			$(this).prev().text('выбрать');
+	    		}
+	    	});
+	    }  
+	});
+
+
+
 
 	$('.ic__header').append('<div class="ic__title"><span class="month"></span><span class="year"></span></div>');
 
@@ -43,11 +66,12 @@ jQuery(document).ready(function($) {
 		$('.ic__day .tab').remove();
 		var title = data[0];
 		var el = data[1];
-		var table = getTable(title);
+		var pos = data[2];
+		var table = getTable(title, pos);
 		$('#tab .unavailable').parent().attr('colspan','2');
 	}
 
-	function getTable(d){
+	function getTable(d, pos){
 
 		// test data
 		data = [
@@ -60,46 +84,69 @@ jQuery(document).ready(function($) {
 		},
 		{
 			'id': 2,
-			'time': '9:00 - 10:00',
+			'time': '10:00 - 11:00',
 			'price': '100',
 			'status': 'доступно'
 			
 		},
 		{
 			'id': 3,
-			'time': '9:00 - 10:00',
+			'time': '11:00 - 12:00',
 			'price': '100',
 			'status': 'недоступно'
 			
 		},
 		{
 			'id': 4,
-			'time': '9:00 - 10:00',
+			'time': '12:00 - 13:00',
 			'price': '100',
 			'status': 'доступно'
 		},
 		{
 			'id': 5,
-			'time': '15:00 - 16:00',
+			'time': '13:00 - 14:00',
 			'price': '100',
 			'status': 'занято'
 		},
 		{
 			'id': 6,
-			'time': '9:00 - 10:00',
+			'time': '14:00 - 15:00',
 			'price': '100',
 			'status': 'доступно'
 		},
 		{
 			'id': 7,
-			'time': '9:00 - 10:00',
+			'time': '15:00 - 16:00',
+			'price': '100',
+			'status': 'доступно'
+		},
+		{
+			'id': 8,
+			'time': '16:00 - 17:00',
+			'price': '100',
+			'status': 'доступно'
+		},
+		{
+			'id': 9,
+			'time': '17:00 - 18:00',
+			'price': '100',
+			'status': 'доступно'
+		},
+		{
+			'id': 8,
+			'time': '18:00 - 19:00',
 			'price': '100',
 			'status': 'доступно'
 		},
 		
 		];
 
-		
+		if ($('#solo').is(':checked')) {
+			 // = 'недоступно';
+			 for (var i=7; i < data.length; i++){
+			 	data[i].status = 'недоступно';
+			 }
+		}
 
 		$('#tab').DataTable({
 			paging: false,
@@ -165,22 +212,22 @@ jQuery(document).ready(function($) {
 			}
 			]
 		});
+		var table = $('#component');
 
-		$("table .ic__day").click(function(){
-			$('#component').removeClass('hide');
-			var table = $('#component');
+		table.find('header').text(d);
 
-			table.find('header').text(d);
-
-			if ($(document).width() > 768) {
-				table.css($(this).offset());
+		if ($(document).width() > 768) {
+				table.css(pos);
 			}else {
 				table.css($('.ic__days').offset());
 			}
+
+			$('#component').removeClass('hide');
+
 			if(!$('*').is('.tab-bg')){
 				$('body').append('<div class="tab-bg" onClick="hideBg($(this));"></div>');
 			}
-		});
+
 
 		// var table = $('#component');
 		// table.find('header').text(d);
@@ -189,6 +236,8 @@ jQuery(document).ready(function($) {
 	
 
 });
+
+
 
 function hideBg(el){
 	$('#component').addClass('hide');

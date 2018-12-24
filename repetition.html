@@ -40,7 +40,7 @@
 					
 					<article class="colendar">
 						
-						<div class="myCalendar" id="myCalendar-1"></div>
+						<div class="myCalendar" id="myCalendar-2"></div>
 
 					</article>
 
@@ -79,6 +79,15 @@
 									<td><span class="amount"><span class="num">200</span>&#8372;</span></td>
 								</tr>
 							</table>
+						</div>
+
+						<div class="addition">
+							<div class="checkbox-confirm">
+								<input type="checkbox" name="solo" id="solo" class="checkbox">
+								<label for="solo">
+									Соло репетиция: 95 &#8372;
+								</label>
+							</div>
 						</div>
 
 					</article>
@@ -152,12 +161,20 @@
 										</div>
 									</div>
 
+									<div class="mus-instr f-block">
+										<span>Доп. Информация</span>
+										<div class="f-inline">
+											<textarea name="add-info" id="add-info"></textarea>
+										</div>
+									</div>
+
+									
 									<div class="timer">
 										<p>Осталось времени для оплаты: <span class="time"><span class="timer-number">15:35</span> мин</span></p>
 									</div>
 
 									<div class="order">
-										<button class="form-btn">
+										<button class="form-btn" data-toggle="modal" data-target="#order-modal">
 											Забронировать и оплатить
 										</button>
 									</div>
@@ -169,7 +186,6 @@
 										</label>
 										<span class="notific">Скидка - 15% </span>
 									</div>
-
 
 								</div>
 
@@ -204,6 +220,36 @@
 				<a href="#" id="confirm">готово</a>
 			</div>
 		</form>
+	</div>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<header>
+						<h3>Заголовок</h3>
+						<b>Времени осталось</b>
+					</header>
+
+					<div class="modal-time">
+						<h2>15:32</h2>
+					</div>
+
+					<div class="order">
+						<button class="form-btn">
+							Забронировать
+						</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</div>
 
 	

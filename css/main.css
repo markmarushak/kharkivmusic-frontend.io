@@ -21,7 +21,8 @@ section.main {
 }
 @media screen and (min-width: 1500px) {
 	section.main {
-		height: 100vh;
+		height: 110%;
+		padding-bottom: 25px;
 	}
 }
 .hide {
@@ -186,6 +187,10 @@ table.ic__week-head {
 	margin: 0;
 }
 
+.ic__day {
+	cursor: pointer;
+}
+
 .ic__day .tab tr {
 	border-bottom: 1px solid #777;
 }
@@ -298,8 +303,9 @@ table.dataTable thead th, table.dataTable thead td {
 #tab tr.select .main-color{
 	color: #24a93a !important;
 }
-#tab tr td:last-child {
+#tab tr td:last-child, #tab tr td:last-child * {
 	text-transform: uppercase;
+	cursor: pointer;
 }
 #tab tr td:last-child input {
 	visibility: hidden;
@@ -544,6 +550,7 @@ article.form header > * {
 	border: none;
 	height: 100%;
 	color: #fff;
+	max-height: calc(300px - 32px);
 }
 
 #order-modal .modal-dialog {
